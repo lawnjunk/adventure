@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+  <head>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="bundle.css" >
+  </head>
+  <body>
+    <main ng-controller="GameController as gameCtrl">
+      <form novalidate name="gameForm" ng-submit="gameCtrl.moveDirection(gameCtrl.gameForm.direction)">
+        Move: 
+        <select name="direction" ng-model="gameCtrl.gameForm.direction">
+          <option value="north">north</option>
+          <option value="south">south</option>
+          <option value="east">east</option>
+          <option value="west">west</option>
+        </select>
+        <input type="submit" value="move" />
+      </form>
+      <p>{{gameCtrl.player}}</p>
+      <p>{{gameCtrl.room}}</p>
+      <ul>
+        <li ng-repeat="move in gameCtrl.history"> {{move}}</li>
+      </ul>
+
+    </main>
+  </body>
+</html>
